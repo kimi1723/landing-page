@@ -1,0 +1,73 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.product-link {
+  flex: 1 0 f.transformPx(368);
+  max-width: f.transformPx(432);
+  border-radius: var.$card-clamped-radius;
+  @include mix.cardAnimation;
+}
+
+.product {
+  padding: f.getClamp(16, 32);
+  background-color: var.$c-grey-1;
+  border-radius: inherit;
+  height: 100%;
+
+  &__img {
+    margin-bottom: f.getClamp(8, 16);
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &__title {
+    text-transform: capitalize;
+  }
+
+  &__details {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    gap: f.transformPx(8);
+    margin-top: f.transformPx(16);
+    padding-top: f.transformPx(16);
+    border-top: 1px solid var.$c-grey-3;
+  }
+
+  &__original-price {
+    font-size: f.transformPx(18);
+    text-decoration: line-through;
+    color: var.$c-grey-4;
+  }
+
+  &__discounted-price {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    font-size: f.transformPx(20);
+    font-weight: 700;
+  }
+
+  &__rating {
+    grid-column: 1 / 2;
+
+    & .star {
+      width: f.transformPx(16);
+
+      &:not(:last-of-type) {
+        margin-right: f.transformPx(4);
+      }
+    }
+  }
+
+  @include mix.handleSize(md) {
+    &__details {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__discounted-price {
+      margin-right: auto;
+    }
+  }
+}

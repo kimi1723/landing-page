@@ -1,0 +1,47 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.socials {
+  position: relative;
+  display: flex;
+  gap: f.transformPx(32);
+
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__link {
+    padding: f.transformPx(20);
+    line-height: 0;
+    background-color: var.$c-grey-1;
+    border-radius: 50%;
+    outline: none;
+    transition: background-color 0.4s, translate 0.3s;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var.$c-primary;
+    }
+
+    &:active {
+      translate: 0 3px;
+    }
+  }
+
+  &__icon {
+    aspect-ratio: 1/1;
+    width: f.transformPx(24);
+    transition: scale 0.4s;
+  }
+
+  &__link:hover &__icon,
+  &__link:focus &__icon,
+  &__link:active &__icon {
+    scale: 1.15;
+  }
+}

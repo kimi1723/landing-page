@@ -1,0 +1,79 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/functions" as f;
+@use "../abstracts/mixins" as mix;
+
+.newsletter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: f.transformPx(32);
+  margin: f.transformPx(64) var.$default-section-padding;
+  padding: f.getClamp(32, 104);
+  background-image: image-set(
+    url("/img/mobile/newsletter/1-1x.webp") 1x,
+    url("/img/mobile/newsletter/1-2x.webp") 2x
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &,
+  &__email {
+    border-radius: 16px;
+  }
+
+  &__title {
+    flex: 1 0 f.transformPx(308);
+    max-width: f.transformPx(516);
+    color: var.$c-white;
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: f.getClamp(16, 24);
+    flex: 1;
+  }
+
+  &__email {
+    flex: 1 0 f.transformPx(304);
+    padding: f.transformPx(24) f.transformPx(48);
+    max-width: f.transformPx(407);
+    transition: scale 0.4s;
+    border: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      scale: 0.975;
+    }
+  }
+
+  &__submit-btn {
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var.$c-body;
+      scale: 0.975;
+    }
+  }
+
+  @include mix.handleSize(sm) {
+    &__form {
+      min-width: max-content;
+    }
+  }
+
+  @include mix.handleSize(md) {
+    background-image: image-set(
+      url("/img/desktop/newsletter/1-1x.webp") 1x,
+      url("/img/desktop/newsletter/1-2x.webp") 2x
+    );
+  }
+
+  @include mix.handleSize(lg) {
+    &__form {
+      justify-content: center;
+    }
+  }
+}

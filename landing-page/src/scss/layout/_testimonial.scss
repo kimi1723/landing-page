@@ -1,0 +1,70 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.testimonial {
+  position: relative;
+  padding: f.getClamp(65, 160) var.$default-section-padding;
+  background-color: var.$c-grey-6;
+
+  & .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    & > * {
+      z-index: 1;
+    }
+  }
+
+  &__bg {
+    display: none;
+  }
+
+  &__title {
+    text-transform: capitalize;
+  }
+
+  &__img {
+    margin-top: 64px;
+    border-radius: 50%;
+  }
+
+  &__rating {
+    display: flex;
+    gap: f.transformPx(8);
+    margin: f.transformPx(16) 0 f.transformPx(32);
+
+    & .star {
+      width: f.transformPx(24);
+    }
+  }
+
+  &__quote {
+    margin-bottom: 24px;
+    width: f.getClamp(368, 896);
+  }
+
+  &__desc {
+    color: var.$c-grey-5;
+  }
+
+  @include mix.handleSize(md) {
+    &__bg {
+      display: block;
+      position: absolute;
+      height: 100%;
+      top: 0;
+      z-index: 0;
+
+      &--left {
+        left: 0;
+      }
+
+      &--right {
+        right: 0;
+      }
+    }
+  }
+}

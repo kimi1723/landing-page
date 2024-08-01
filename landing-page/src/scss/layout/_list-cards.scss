@@ -1,0 +1,11 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/functions" as f;
+
+.list-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: f.transformPx(24);
+  padding: f.getClamp(64, 80) var.$default-section-padding;
+  background-color: var.$c-grey-1;
+}

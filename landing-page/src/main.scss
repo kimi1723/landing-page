@@ -1,0 +1,29 @@
+@use "./scss/base/base";
+@use "./scss/base/typography";
+@use "./scss/base/utilities";
+
+@use "./scss/components/section-layout-1";
+@use "./scss/components/annotation";
+@use "./scss/components/hero-img";
+@use "./scss/components/link-button";
+@use "./scss/components/offer";
+@use "./scss/components/more-info";
+@use "./scss/components/product";
+@use "./scss/components/star";
+@use "./scss/components/news-box";
+@use "./scss/components/img-card";
+
+@use "./scss/layout/wrapper";
+@use "./scss/layout/nav-bar";
+@use "./scss/layout/header";
+@use "./scss/layout/main";
+@use "./scss/layout/offers";
+@use "./scss/layout/about-us";
+@use "./scss/layout/products";
+@use "./scss/layout/testimonial";
+@use "./scss/layout/offer-products";
+@use "./scss/layout/eco-friendly";
+@use "./scss/layout/news";
+@use "./scss/layout/list-cards";
+@use "./scss/layout/newsletter";
+@use "./scss/layout/footer";

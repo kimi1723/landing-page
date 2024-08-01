@@ -1,0 +1,7 @@
+.address {
+  &__dl-title {
+    font-size: f.transformPx(20);
+    color: var.$c-grey-5;
+    font-weight: bold;
+  }
+}

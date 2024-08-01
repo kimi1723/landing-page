@@ -1,0 +1,35 @@
+<div class="nav-bar">
+  <a class="nav-bar__logo-link" href="#" aria-label="Organick">
+    <img src="/img/svg/Logo.svg" alt="" class="nav-bar__logo-icon" />
+  </a>
+
+  <button
+    class="nav-bar__burger-btn"
+    aria-controls="nav-bar-content"
+    aria-label="Expand navigation and socials"
+  >
+    <svg class="nav-bar__burger-icon">
+      <use xlink:href="/img/sprite.svg#Burger"></use>
+    </svg>
+  </button>
+
+  <button
+    class="nav-bar__cross-btn d-none"
+    aria-controls="nav-bar-content"
+    aria-label="Hide navigation and socials"
+  >
+    <svg class="nav-bar__cross-icon">
+      <use xlink:href="/img/sprite.svg#Cross"></use>
+    </svg>
+  </button>
+
+  <div
+    class="nav-bar__content hidden"
+    aria-expanded="false"
+    id="nav-bar-content"
+    aria-hidden="true"
+  >
+    <load src="../components/nav.html" />
+    <load src="../components/socials.html" class="nav-bar__socials" />
+  </div>
+</div>

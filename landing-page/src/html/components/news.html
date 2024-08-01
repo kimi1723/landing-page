@@ -1,0 +1,32 @@
+<article class="news-box">
+  <img
+    src="{=$imgSrc}"
+    srcset="{=$srcset}"
+    sizes="{=$sizes}"
+    alt=""
+    class="news-box__img"
+  />
+  <time class="news-box__time" datetime="{=$datetime}"
+    ><span class="news-box__day heading--4">{=$day}</span>
+    <span class="news-box__month label--1">{=$month}</span>
+  </time>
+
+  <div class="news-box__content">
+    <p class="news-box__author">
+      <svg class="news-box__author-icon">
+        <use xlink:href="/img/sprite.svg#User"></use>
+      </svg>
+      {=$author}
+    </p>
+    <h3 class="subtitle subtitle--3">{=$title}</h3>
+    <blockquote class="news-box__desc" cite="{=$link}">
+      <p>{=$text}</p>
+    </blockquote>
+    <a href="{=$link}" class="news-box__link"
+      >View more
+      <svg class="news-box__link-icon">
+        <use xlink:href="/img/sprite.svg#Arrow"></use>
+      </svg>
+    </a>
+  </div>
+</article>

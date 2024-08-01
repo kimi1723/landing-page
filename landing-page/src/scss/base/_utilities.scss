@@ -1,0 +1,32 @@
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.break-after::after {
+  content: "\a";
+  white-space: pre-line;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  margin: -1px;
+  white-space: nowrap;
+  border-width: 0;
+  clip: rect(0, 0, 0, 0);
+}

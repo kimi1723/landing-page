@@ -1,0 +1,8 @@
+@use "../abstracts/functions" as f;
+
+.annotation {
+  font-size: f.getClamp(28, 36);
+  text-transform: capitalize;
+  line-height: f.getClamp(48, 64);
+  text-decoration: none;
+}

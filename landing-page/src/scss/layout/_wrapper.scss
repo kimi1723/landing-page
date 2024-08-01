@@ -1,0 +1,6 @@
+@use "../abstracts/functions" as f;
+
+.wrapper {
+  margin: 0 auto;
+  max-width: f.transformPx(1440);
+}

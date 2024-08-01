@@ -1,0 +1,103 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/functions" as f;
+
+.app {
+  font-family: "Roboto", sans-serif;
+  font-size: f.getClamp(18, 20);
+  line-height: f.transformPx(32);
+  letter-spacing: var.$default-letter-spacing;
+
+  &--large,
+  &--bold {
+    font-size: f.transformPx(20);
+  }
+
+  &--bold {
+    font-weight: bold;
+  }
+}
+
+.heading {
+  &--1 {
+    font-size: f.getClamp(54, 70);
+    line-height: f.getClamp(64, 84);
+  }
+
+  &--2 {
+    font-size: f.getClamp(40, 48);
+    line-height: f.getClamp(48, 56);
+  }
+
+  &--3 {
+    font-size: f.transformPx(40);
+    line-height: f.transformPx(48);
+    font-weight: 400;
+  }
+
+  &--4 {
+    font-size: f.transformPx(30);
+    line-height: f.transformPx(32);
+    letter-spacing: normal;
+  }
+}
+
+.serif-text {
+  font-size: f.getClamp(28, 36);
+  font-family: "Yellowtail", serif;
+  text-transform: capitalize;
+
+  &--white {
+    color: var.$c-white;
+  }
+
+  &--primary {
+    color: var.$c-primary;
+  }
+}
+
+.subtitle {
+  line-height: f.transformPx(32);
+  font-weight: 400;
+
+  &--1 {
+    font-size: f.transformPx(22);
+  }
+
+  &--2,
+  &--3 {
+    font-size: f.transformPx(24);
+  }
+
+  &--3,
+  &--4 {
+    font-weight: 700;
+  }
+
+  &--3 {
+    text-transform: capitalize;
+  }
+
+  &--4 {
+    font-size: f.transformPx(26);
+  }
+}
+
+.label {
+  display: inline-block;
+
+  &--1 {
+    font-size: f.transformPx(14);
+    line-height: f.transformPx(16);
+    color: var.$c-grey-5;
+  }
+
+  &--2 {
+    padding: f.transformPx(8) f.transformPx(24);
+    font-size: f.transformPx(16);
+    line-height: f.transformPx(24);
+    font-weight: 700;
+    color: var.$c-white;
+    background-color: var.$c-body;
+    border-radius: 8px;
+  }
+}

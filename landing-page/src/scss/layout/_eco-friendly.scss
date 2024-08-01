@@ -1,0 +1,59 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.eco-friendly-wrapper {
+  padding: f.transformPx(230) var.$default-section-padding 0;
+  background-image: image-set(
+    url("/img/mobile/eco-friendly/1-1x.webp") 1x,
+    url("/img/mobile/eco-friendly/1-2x.webp") 2x
+  );
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @include mix.handleSize(lg) {
+    padding-top: f.transformPx(56);
+    padding-bottom: f.transformPx(56);
+    background-image: image-set(
+      url("/img/desktop/eco-friendly/1-1x.webp") 1x,
+      url("/img/desktop/eco-friendly/1-2x.webp") 2x
+    );
+    background-size: f.getPercentage(820, 1440) 100%, contain;
+  }
+}
+
+.eco-friendly {
+  margin: 0 auto;
+  padding: f.getClamp(32, 36);
+  max-width: f.transformPx(712);
+  background-color: var.$c-white;
+  border-radius: var.$card-radius;
+  box-shadow: var.$shadow-lg;
+
+  &__title {
+    margin-bottom: f.getClamp(32, 56);
+  }
+
+  &__list-title {
+    margin-bottom: f.transformPx(8);
+  }
+
+  &__list-desc:not(:last-child) {
+    margin-bottom: f.transformPx(24);
+  }
+
+  @include mix.handleSize(lg) {
+    margin-right: 0;
+    padding-bottom: 68px;
+
+    &__list-title {
+      position: relative;
+      top: -0.89px;
+      margin-bottom: 0;
+    }
+
+    &__list-desc:not(:last-child) {
+      margin-bottom: f.transformPx(16);
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+
+.more-info {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: f.transformPx(24);
+
+  &:not(:last-of-type) {
+    margin-bottom: f.transformPx(24);
+  }
+
+  &__icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    width: f.transformPx(96);
+    background-color: #fff;
+    border-radius: 20px;
+  }
+
+  &__icon {
+    aspect-ratio: 1 / 1;
+    width: 50%;
+  }
+
+  &__desc {
+    margin-top: f.transformPx(12);
+    color: var.$c-grey-5;
+  }
+}

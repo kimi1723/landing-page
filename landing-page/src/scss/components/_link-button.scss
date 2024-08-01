@@ -1,0 +1,62 @@
+@use "sass:color";
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+
+.btn {
+  display: inline-block;
+  padding: f.getClamp(16, 24) f.transformPx(24);
+  text-transform: capitalize;
+  border-radius: 16px;
+  outline: none;
+  transition-property: background-color, box-shadow, color, translate, scale;
+  transition-duration: 0.4s, 0.4s, 0.4s, 0.3s, 0.3s;
+
+  &:hover,
+  &:focus {
+    box-shadow: var.$shadow-sm;
+  }
+
+  &:active {
+    translate: 0 4px;
+    box-shadow: var.$shadow-md;
+    scale: 0.95;
+  }
+
+  &--orange {
+    background-color: var.$c-secondary;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(var.$c-secondary, 0.75);
+    }
+  }
+
+  &--body {
+    color: var.$c-white;
+    background-color: var.$c-body;
+
+    &:hover,
+    &:focus {
+      text-shadow: 0 1px 0 rgba(#000, 0.8);
+      background-color: rgba(var.$c-body, 0.75);
+    }
+  }
+
+  &--transparent {
+    background-color: transparent;
+    border: 1px solid var.$c-body;
+
+    &:hover,
+    &:focus {
+      color: var.$c-white;
+      background-color: var.$c-body;
+    }
+  }
+
+  &__icon {
+    margin-left: 16px;
+    height: 12px;
+    width: 35px;
+    stroke: currentColor;
+  }
+}

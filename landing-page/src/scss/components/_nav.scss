@@ -1,0 +1,53 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.nav {
+  position: relative;
+  top: 24px;
+  padding: 0 f.getClamp(16.5, 33);
+  font-size: f.transformPx(20);
+
+  &__item {
+    margin-bottom: f.transformPx(8);
+  }
+
+  &__link {
+    display: inline-block;
+    margin: 0 f.transformPx(-16);
+    padding: f.transformPx(16);
+    cursor: pointer;
+
+    @include mix.barSlideUnderElAnimation();
+
+    &::before {
+      bottom: f.transformPx(16);
+      left: f.transformPx(16);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      &::before {
+        width: calc(100% - f.transformPx(16) * 2);
+      }
+    }
+  }
+
+  @include mix.handleSize(lg) {
+    top: 0;
+
+    &__list {
+      display: flex;
+      gap: f.transformPx(40);
+    }
+
+    &__item {
+      margin-bottom: 0;
+    }
+
+    &__link {
+      margin: f.transformPx(-16);
+    }
+  }
+}

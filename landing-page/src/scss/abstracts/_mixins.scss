@@ -1,0 +1,74 @@
+@use "./variables" as var;
+@use "./functions" as f;
+
+@mixin handleSize($size) {
+  @if $size == lg {
+    @media (min-width: var.$bp-lg) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (min-width: var.$bp-md) {
+      @content;
+    }
+  } @else if $size == sm {
+    @media (min-width: var.$bp-sm) {
+      @content;
+    }
+  }
+}
+
+@mixin cardAnimation() {
+  & {
+    outline: none;
+    transition: scale 0.4s, box-shadow 0.4s, translate 0.4s;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    scale: 0.95;
+    box-shadow: var.$shadow-sm;
+  }
+
+  &:active {
+    scale: 0.9;
+    translate: 0 4px;
+  }
+}
+
+@mixin barSlideUnderElAnimation() {
+  & {
+    position: relative;
+    outline: none;
+    transition: color 0.4s, translate 0.3s;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var.$c-primary;
+    transition: width 0.4s, height 0.4s;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var.$c-primary;
+
+    &::before {
+      width: 100%;
+    }
+  }
+
+  &:active {
+    translate: 0 3px;
+
+    &::before {
+      height: 1px;
+    }
+  }
+}

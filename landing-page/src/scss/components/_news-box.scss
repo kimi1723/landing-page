@@ -1,0 +1,74 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/functions" as f;
+@use "../abstracts/mixins" as mix;
+
+.news-box {
+  position: relative;
+  border-radius: var.$card-radius;
+
+  &__img {
+    position: relative;
+    margin-bottom: calc(f.getClamp(84, 263) * -1);
+    width: 100%;
+    max-width: f.transformPx(665);
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  &__time {
+    position: absolute;
+    top: 31px;
+    left: 29px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    width: f.transformPx(80);
+    border-radius: 50%;
+    background-color: var.$c-white;
+  }
+
+  &__day {
+    font-weight: 700;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: f.transformPx(16);
+    margin: 0 auto;
+    padding: f.getClamp(24, 52) f.getClamp(16, 32);
+    width: f.getPercentage(336, 368);
+    max-width: f.transformPx(617);
+    background-color: var.$c-white;
+    border-radius: inherit;
+    box-shadow: var.$shadow-lg;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: f.transformPx(8);
+  }
+
+  &__author-icon {
+    aspect-ratio: 1 / 1;
+    width: f.transformPx(24);
+  }
+
+  &__link {
+    align-self: flex-start;
+    margin-top: f.transformPx(8);
+    margin-left: f.transformPx(2);
+
+    @include mix.barSlideUnderElAnimation();
+  }
+
+  &__link-icon {
+    margin-left: f.transformPx(12);
+    height: 12px;
+    width: 35px;
+    stroke: currentColor;
+  }
+}

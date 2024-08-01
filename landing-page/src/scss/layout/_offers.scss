@@ -1,0 +1,9 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+
+.offers-box {
+  padding: f.getClamp(64, 96) var.$default-section-padding;
+  display: flex;
+  flex-wrap: wrap;
+  gap: f.transformPx(32);
+}

@@ -1,0 +1,24 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+
+.products {
+  padding: f.getClamp(64, 96) var.$default-section-padding;
+
+  &__annotation,
+  &__title {
+    display: block;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: f.getClamp(32, 40);
+    text-transform: capitalize;
+  }
+
+  &__products-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: f.getClamp(24, 32);
+  }
+}

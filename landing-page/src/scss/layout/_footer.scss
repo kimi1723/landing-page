@@ -1,0 +1,107 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.footer {
+  color: var.$c-grey-5;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: f.transformPx(64);
+    margin-bottom: f.getClamp(48, 64);
+    padding: 0 var.$default-section-padding;
+  }
+
+  &__main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: f.getClamp(32, 40);
+  }
+
+  &__address {
+    font-style: normal;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: f.getClamp(16, 32);
+  }
+
+  &__list-title {
+    margin-bottom: f.getClamp(24, 48);
+    color: var.$c-body;
+  }
+
+  &__dl-title {
+    font-size: f.transformPx(20);
+    font-weight: bold;
+  }
+
+  &__logo-link {
+    display: inline-block;
+  }
+
+  &__link {
+    @include mix.barSlideUnderElAnimation;
+  }
+
+  &__copyright {
+    padding: f.transformPx(24) 0;
+    text-align: center;
+    border-top: 1px solid var.$c-grey-3;
+  }
+
+  @include mix.handleSize(sm) {
+    &__content {
+      justify-content: space-evenly;
+    }
+  }
+
+  @include mix.handleSize(lg) {
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: f.transformPx(32);
+
+      & > * {
+        grid-row: 1 / 2;
+      }
+    }
+
+    &__main-info {
+      grid-column: 4 / 10;
+      padding-top: f.transformPx(32);
+    }
+
+    &__socials {
+      margin: f.transformPx(24) 0 f.transformPx(48);
+    }
+
+    &__contact-us,
+    &__utility-pages {
+      padding-top: f.transformPx(8);
+    }
+
+    &__contact-us {
+      grid-column: 1 / 4;
+      padding-right: f.transformPx(32);
+      text-align: right;
+      border-right: 1px solid var.$c-grey-3;
+    }
+
+    &__utility-pages {
+      grid-column: 10 / -1;
+      padding-left: f.transformPx(32);
+      border-left: 1px solid var.$c-grey-3;
+    }
+
+    &__copyright {
+      padding: f.transformPx(16) 0;
+    }
+  }
+}

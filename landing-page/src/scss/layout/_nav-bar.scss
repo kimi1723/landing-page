@@ -1,0 +1,88 @@
+@use "../components/nav";
+@use "../components/socials";
+@use "../abstracts/variables" as var;
+@use "../abstracts/functions" as f;
+@use "../abstracts/mixins" as mix;
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: f.getClamp(16, 48) f.getClamp(16, 40);
+  background-color: var.$c-white;
+  z-index: 100;
+
+  &__logo {
+    &-link {
+      margin-right: auto;
+    }
+
+    &-icon {
+      height: f.getClamp(40, 56);
+      width: f.getClamp(142, 200);
+    }
+  }
+
+  &__burger,
+  &__cross {
+    &-btn {
+      margin: f.getClamp(-8, -16);
+      padding: f.getClamp(8, 16);
+      line-height: 0;
+
+      &:hover > svg,
+      &:focus > svg,
+      &:active > svg {
+        scale: 1.15;
+      }
+
+      &:active > svg {
+        translate: 0 2px;
+      }
+    }
+
+    &-icon {
+      aspect-ratio: 1/1;
+      width: f.transformPx(24);
+      transition: scale 0.3s, translate 0.3s;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: calc(100svh - 100%);
+    width: 100svw;
+    background-color: inherit;
+    translate: 100%;
+    transition: translate 0.3s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0;
+    overflow-y: scroll;
+
+    &--visible {
+      opacity: 1;
+      translate: 0;
+    }
+  }
+
+  &__socials {
+    margin: f.transformPx(136) 0 f.transformPx(68);
+    padding: 0 f.transformPx(24);
+  }
+
+  @include mix.handleSize(lg) {
+    &__content {
+      position: static;
+      width: auto;
+      overflow-y: visible;
+    }
+
+    &__socials {
+      display: none;
+    }
+  }
+}

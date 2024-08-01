@@ -1,0 +1,32 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+
+.about-us {
+  padding: f.getClamp(43, 80) var.$default-section-padding f.getClamp(64, 80);
+  background-color: var.$c-grey-1;
+
+  & .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: f.transformPx(32);
+  }
+
+  &__img {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 664px;
+    object-fit: contain;
+  }
+
+  &__content {
+    flex: 1 0 f.transformPx(368);
+  }
+
+  &__desc {
+    margin: f.transformPx(16) 0 f.transformPx(32);
+  }
+
+  &__btn {
+    margin-top: f.transformPx(32);
+  }
+}

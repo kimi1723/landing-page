@@ -1,0 +1,22 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/functions" as f;
+@use "../abstracts/mixins" as mix;
+
+.section-layout-1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: f.getClamp(64, 80) var.$default-section-padding;
+
+  &__btn {
+    align-self: flex-start;
+  }
+
+  @include mix.handleSize(lg) {
+    &__btn {
+      position: absolute;
+      right: var.$default-section-padding;
+      translate: 0 50%;
+    }
+  }
+}

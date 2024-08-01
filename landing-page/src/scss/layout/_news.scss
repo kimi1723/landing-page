@@ -1,0 +1,24 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/mixins" as mix;
+
+.news {
+  &__title {
+    margin-bottom: f.getClamp(24, 60);
+  }
+
+  &__btn {
+    margin-bottom: f.transformPx(32);
+  }
+
+  &__wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    @include mix.handleSize(lg) {
+      flex-direction: row;
+    }
+  }
+}

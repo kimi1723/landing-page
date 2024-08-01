@@ -1,0 +1,57 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.offer {
+  flex: 1 0 f.transformPx(368);
+  display: flex;
+  padding: f.getClamp(96, 112) f.getClamp(55, 64);
+  border-radius: var.$card-radius;
+  background-size: cover;
+
+  @include mix.cardAnimation;
+
+  &--1 {
+    text-transform: capitalize;
+    background-image: image-set(
+      url("/img/mobile/offers/offer1-1x.webp") 1x,
+      url("/img/mobile/offers/offer1-2x.webp") 2x
+    );
+  }
+
+  &--2 {
+    background-image: image-set(
+      url("/img/mobile/offers/offer2-1x.webp") 1x,
+      url("/img/mobile/offers/offer2-2x.webp") 2x
+    );
+  }
+
+  &__annotation {
+    font-size: f.transformPx(36);
+    line-height: f.transformPx(64);
+  }
+
+  &__title {
+    min-width: 9ch;
+
+    &--white {
+      color: var.$c-white;
+    }
+  }
+
+  @include mix.handleSize(md) {
+    &--1 {
+      background-image: image-set(
+        url("/img/desktop/offers/offer1-1x.webp") 1x,
+        url("/img/desktop/offers/offer1-2x.webp") 2x
+      );
+    }
+
+    &--2 {
+      background-image: image-set(
+        url("/img/desktop/offers/offer2-1x.webp") 1x,
+        url("/img/desktop/offers/offer2-2x.webp") 2x
+      );
+    }
+  }
+}

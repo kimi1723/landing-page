@@ -1,0 +1,38 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.img-card {
+  position: relative;
+  flex: 1 0 f.transformPx(368);
+  max-width: f.transformPx(432);
+
+  &,
+  &__img {
+    border-radius: var.$card-radius;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 56px;
+    left: f.getPercentage(24, 368);
+    padding: 32px 40px;
+    width: f.getPercentage(320, 368);
+    text-align: center;
+    text-transform: capitalize;
+    background-color: var.$c-white;
+    border-radius: 24px;
+    transition: background-color 0.4s, color 0.4s;
+  }
+
+  @include mix.cardAnimation;
+
+  &:hover &__text {
+    color: var.$c-white;
+    background-color: var.$c-primary;
+  }
+}

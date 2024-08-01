@@ -1,0 +1,23 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/mixins" as mix;
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: image-set(
+    url("/img/mobile/hero/1x.webp") 1x,
+    url("/img/mobile/hero/2x.webp") 2x
+  );
+  background-size: cover;
+  z-index: -1;
+
+  @include mix.handleSize(lg) {
+    background-image: image-set(
+      url("/img/desktop/hero/1x.webp") 1x,
+      url("/img/desktop/hero/2x.webp") 2x
+    );
+  }
+}

@@ -1,0 +1,54 @@
+<section class="about-us">
+  <div class="wrapper">
+    <img
+      src="/img/mobile/about-us/1.webp"
+      srcset="
+        /img/mobile/about-us/1.webp   360w,
+        /img/mobile/about-us/2.webp   720w,
+        /img/desktop/about-us/1.webp  648w,
+        /img/desktop/about-us/2.webp 1296w
+      "
+      sizes="((max-width: 62em) and (min-resolution: 2x)) 720w,
+  ((min-width: 62em) and (min-resolution: 2x)) 1296w,
+  (min-width: 62em) 648w,
+  100vw"
+      alt="Colorful and tasteful grapefruits, oranges, lemons and limes"
+      class="about-us__img"
+    />
+
+    <div class="about-us__content">
+      <load
+        src="../components/annotation.html"
+        color="primary"
+        text="About us"
+      />
+      <h2 class="heading--2">We Believe in Organic Foods For Strong Health</h2>
+      <p class="about-us__desc">
+        Welcome to the world of natural and organic. Here you can discover the
+        bounty of nature. We have grown on the principles of health, and care.
+        We aim to give our customers a healthy chemical-free meal for perfect
+        nutrition.
+      </p>
+
+      <load
+        src="../components/more-info.html"
+        icon-id="Food"
+        heading="Organic foods only"
+        desc="The Product that you ordered will be verified that we have or not if have we will start to move on with the next step."
+      />
+      <load
+        src="../components/more-info.html"
+        icon-id="Quality"
+        heading="Quality standards"
+        desc="Once your product is packed it will be delivered to your nearby locality you can directly visit the to buy the product."
+      />
+
+      <load
+        src="../components/link-button.html"
+        color="body"
+        text="Shop now"
+        class="about-us__btn"
+      />
+    </div>
+  </div>
+</section>
